@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritah's Career Command Center</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',
+              400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',
+              800:'#065f46',900:'#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    .view { display: none; }
+    .view.active { display: block; animation: fade .35s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+    .nav-link.active {
+      background: linear-gradient(90deg, rgba(16,185,129,.15), transparent);
+      color: #10b981;
+      border-left: 3px solid #10b981;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+
+<div class="flex min-h-screen">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside id="sidebar"
+    class="fixed lg:static z-40 inset-y-0 left-0 w-72 -translate-x-full lg:translate-x-0 transition-transform duration-300
+           bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+
+    <!-- Brand -->
+    <div class="px-6 py-6 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/30">
+          <i class="fa-solid fa-leaf text-white text-lg"></i>
+        </div>
+        <div>
+          <h1 class="text-base font-extrabold leading-tight">Ritah's Command Center</h1>
+          <p class="text-xs text-slate-400">Career &amp; Relocation HQ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="flex-1 px-3 py-4 space-y-1">
+      <a href="#" data-view="overview" class="nav-link active flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <i class="fa-solid fa-chart-pie w-5 text-center"></i> Overview
+      </a>
+      <a href="#" data-view="plan" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <i class="fa-solid fa-route w-5 text-center"></i> Action Plan
+      </a>
+      <a href="#" data-view="documents" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <i class="fa-solid fa-folder-open w-5 text-center"></i> Document Hub
+      </a>
+      <a href="#" data-view="jobs" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <i class="fa-solid fa-briefcase w-5 text-center"></i> Job Tracker
+      </a>
+      <a href="#" data-view="knowledge" class="nav-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <i class="fa-solid fa-brain w-5 text-center"></i> Knowledge Base
+      </a>
+    </nav>
+
+    <!-- IND target card -->
+    <div class="m-3 p-4 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 text-white">
+      <p class="text-xs uppercase tracking-wide opacity-80">IND target (30+)</p>
+      <p class="text-2xl font-extrabold mt-1">€5,500+</p>
+      <p class="text-xs opacity-80">gross / month — Highly Skilled Migrant</p>
+    </div>
+
+    <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-400">
+      Visa deadline: <span class="font-semibold text-slate-600 dark:text-slate-300">Oct 31, 2026</span>
+    </div>
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+  <!-- ============ MAIN ============ -->
+  <div class="flex-1 flex flex-col min-w-0">
+
+    <!-- Topbar -->
+    <header class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div>
+          <h2 id="pageTitle" class="text-lg font-bold">Overview</h2>
+          <p id="pageSub" class="text-xs text-slate-400 hidden sm:block">Main dashboard — relocation project status</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300 font-medium">
+          <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span> Project active
+        </span>
+        <button id="themeBtn" class="w-10 h-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i class="fa-solid fa-moon dark:hidden"></i>
+          <i class="fa-solid fa-sun hidden dark:inline"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto">
+
+      <!-- ============ VIEW: OVERVIEW ============ -->
+      <section id="view-overview" class="view active">
+
+        <!-- Hero / Countdown -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 to-brand-900 text-white p-6 sm:p-8 mb-8 shadow-xl">
+          <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-brand-500/20 blur-2xl"></div>
+          <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div>
+              <p class="text-brand-300 font-medium text-sm mb-1"><i class="fa-regular fa-clock mr-1"></i> Time to visa deadline</p>
+              <h3 class="text-2xl sm:text-3xl font-extrabold">Highly Skilled Migrant — launch window</h3>
+              <p class="text-slate-300 text-sm mt-2 max-w-lg">Goal: secure a job offer ≥ €5,500 gross/month and an IND sponsor before the Exchange program ends.</p>
+            </div>
+            <div class="flex gap-3 sm:gap-4">
+              <div class="text-center bg-white/10 backdrop-blur rounded-xl px-4 py-3 min-w-[80px]">
+                <div id="cd-days" class="text-3xl sm:text-4xl font-extrabold">--</div>
+                <div class="text-[11px] uppercase tracking-wide text-slate-300">Days</div>
+              </div>
+              <div class="text-center bg-white/10 backdrop-blur rounded-xl px-4 py-3 min-w-[80px]">
+                <div id="cd-weeks" class="text-3xl sm:text-4xl font-extrabold">--</div>
+                <div class="text-[11px] uppercase tracking-wide text-slate-300">Weeks</div>
+              </div>
+              <div class="text-center bg-white/10 backdrop-blur rounded-xl px-4 py-3 min-w-[80px]">
+                <div id="cd-months" class="text-3xl sm:text-4xl font-extrabold">--</div>
+                <div class="text-[11px] uppercase tracking-wide text-slate-300">Months</div>
+              </div>
+            </div>
+          </div>
+          <!-- progress -->
+          <div class="relative mt-6">
+            <div class="flex justify-between text-xs text-slate-300 mb-1">
+              <span>Project start</span>
+              <span id="cd-progress-label">--%</span>
+              <span>Oct 31, 2026</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-white/15">
+              <div id="cd-progress" class="h-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat widgets -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500"><i class="fa-solid fa-paper-plane"></i></div>
+              <span class="text-xs text-slate-400">Total</span>
+            </div>
+            <div class="text-3xl font-extrabold mt-3">0</div>
+            <p class="text-sm text-slate-400">Applications sent</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center text-amber-500"><i class="fa-solid fa-comments"></i></div>
+              <span class="text-xs text-slate-400">Active</span>
+            </div>
+            <div class="text-3xl font-extrabold mt-3">0</div>
+            <p class="text-sm text-slate-400">Replies / interviews</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center text-brand-500"><i class="fa-solid fa-file-circle-check"></i></div>
+              <span class="text-xs text-slate-400">1 / 4</span>
+            </div>
+            <div class="text-3xl font-extrabold mt-3">25%</div>
+            <p class="text-sm text-slate-400">Document readiness</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-500"><i class="fa-solid fa-flag-checkered"></i></div>
+              <span class="text-xs text-slate-400">Phase 1</span>
+            </div>
+            <div class="text-3xl font-extrabold mt-3">Preparation</div>
+            <p class="text-sm text-slate-400">Current stage</p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+
+          <!-- Next steps -->
+          <div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-5">
+              <h3 class="font-bold text-lg"><i class="fa-solid fa-list-check text-brand-500 mr-2"></i>Next Steps</h3>
+              <span class="text-xs text-slate-400">June 2026</span>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">1</span>
+                <div>
+                  <p class="font-medium">Rebuild CV into an expert (Mid/Senior) version</p>
+                  <p class="text-sm text-slate-400">Combine Uganda career experience with the Dutch academic polish — justify the €5,500 threshold.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">2</span>
+                <div>
+                  <p class="font-medium">Submit diploma evaluation request (IDW / Nuffic)</p>
+                  <p class="text-sm text-slate-400">Confirm the level of the Ugandan master's degree on the NL market — key for positioning.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">3</span>
+                <div>
+                  <p class="font-medium">Optimize LinkedIn profile for Sustainability keywords</p>
+                  <p class="text-sm text-slate-400">Environmental / Natural Resources / ESG — visibility to recruiters at Arcadis, RHDHV, Sweco, Tauw.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">4</span>
+                <div>
+                  <p class="font-medium">Secure references from Dutch professors</p>
+                  <p class="text-sm text-slate-400">Strengthen credibility and the local-market network.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- This week goals -->
+          <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
+            <h3 class="font-bold text-lg mb-5"><i class="fa-solid fa-bullseye text-amber-500 mr-2"></i>Goals this week</h3>
+            <div class="space-y-4">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
+                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Collect all of Ritah's files (CV, transcripts, projects)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
+                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Initial analysis of niche skills</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
+                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Shortlist 10 target companies + payroll agencies</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
+                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Check Nuffic/IDW requirements and cost</span>
+              </label>
+            </div>
+            <div class="mt-6 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/40">
+              <p class="text-xs text-amber-700 dark:text-amber-300"><i class="fa-solid fa-lightbulb mr-1"></i> <strong>Strategy:</strong> position Ritah as an experienced international specialist, not a fresh graduate — this justifies the expert salary.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PLACEHOLDER VIEWS ============ -->
+      <section id="view-plan" class="view">
+        <div class="placeholder" data-icon="fa-route" data-title="Action Plan — Timeline"
+          data-desc="Chronological timeline: June (Preparation) → July/August (Intensive recruitment) → September (Visa / Payroll processes)."></div>
+      </section>
+
+      <section id="view-documents" class="view">
+        <div class="placeholder" data-icon="fa-folder-open" data-title="Document Hub"
+          data-desc="Document checklist with statuses: expert CV, LinkedIn, IDW/Nuffic, professor references."></div>
+      </section>
+
+      <section id="view-jobs" class="view">
+        <div class="placeholder" data-icon="fa-briefcase" data-title="Job Tracker"
+          data-desc="Table / mini-Kanban: company, role, type (IND sponsor / Payroll), status, notes."></div>
+      </section>
+
+      <section id="view-knowledge" class="view">
+        <div class="placeholder" data-icon="fa-brain" data-title="Knowledge Base"
+          data-desc="IND thresholds for 30+ (€5,500+), payroll agency contacts, notes on the Dutch job market and cultural differences."></div>
+      </section>
+
+    </main>
+
+    <footer class="px-8 py-4 text-center text-xs text-slate-400 border-t border-slate-200 dark:border-slate-800">
+      Ritah's Career Command Center · private dashboard for the relocation &amp; career project
+    </footer>
+  </div>
+</div>
+
+<script>
+  /* ---------- Tab switching ---------- */
+  const views = {
+    overview:  { title: 'Overview',      sub: 'Main dashboard — relocation project status' },
+    plan:      { title: 'Action Plan',   sub: 'Interactive timeline of tasks until October' },
+    documents: { title: 'Document Hub',  sub: 'Status of required documents' },
+    jobs:      { title: 'Job Tracker',   sub: 'Tracking submitted applications' },
+    knowledge: { title: 'Knowledge Base',sub: 'Hard data, notes and market analysis' },
+  };
+
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.view');
+
+  function switchView(key) {
+    sections.forEach(s => s.classList.toggle('active', s.id === 'view-' + key));
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.view === key));
+    document.getElementById('pageTitle').textContent = views[key].title;
+    document.getElementById('pageSub').textContent = views[key].sub;
+    closeSidebar();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    switchView(l.dataset.view);
+  }));
+
+  /* ---------- Build placeholders ---------- */
+  document.querySelectorAll('.placeholder').forEach(el => {
+    el.innerHTML = `
+      <div class="flex flex-col items-center justify-center text-center py-24 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/40">
+        <div class="w-16 h-16 rounded-2xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center text-brand-500 text-2xl mb-4">
+          <i class="fa-solid ${el.dataset.icon}"></i>
+        </div>
+        <h3 class="text-xl font-bold">${el.dataset.title}</h3>
+        <p class="text-sm text-slate-400 max-w-md mt-2">${el.dataset.desc}</p>
+        <span class="mt-5 inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-300">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Placeholder — Under construction
+        </span>
+      </div>`;
+  });
+
+  /* ---------- Countdown to Oct 31, 2026 ---------- */
+  const DEADLINE = new Date('2026-10-31T23:59:59');
+  const START = new Date('2026-06-01T00:00:00');
+
+  function updateCountdown() {
+    const now = new Date();
+    const msLeft = DEADLINE - now;
+    const days = Math.max(0, Math.ceil(msLeft / 86400000));
+    document.getElementById('cd-days').textContent   = days;
+    document.getElementById('cd-weeks').textContent  = Math.ceil(days / 7);
+    document.getElementById('cd-months').textContent = (days / 30.44).toFixed(1);
+
+    const total = DEADLINE - START;
+    const done = Math.min(100, Math.max(0, ((now - START) / total) * 100));
+    document.getElementById('cd-progress').style.width = done.toFixed(1) + '%';
+    document.getElementById('cd-progress-label').textContent = done.toFixed(0) + '%';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  /* ---------- Theme toggle ---------- */
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+  });
+
+  /* ---------- Mobile sidebar ---------- */
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  function openSidebar()  { sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); }
+  function closeSidebar() { sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); }
+  document.getElementById('menuBtn').addEventListener('click', openSidebar);
+  overlay.addEventListener('click', closeSidebar);
+</script>
+</body>
+</html>
