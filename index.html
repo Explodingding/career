@@ -29,6 +29,10 @@
     .nav-link.active { background: linear-gradient(90deg, rgba(16,185,129,.15), transparent); color:#10b981; border-left:3px solid #10b981; }
     .cell-input { background: transparent; width:100%; outline:none; font-size:0.8rem; padding:2px 4px; border-radius:4px; }
     .cell-input:focus { background: rgba(16,185,129,.08); box-shadow: 0 0 0 1px rgba(16,185,129,.4); }
+    .tbody select { cursor: pointer; }
+    .tbody select.cell-input { border: 1px solid rgba(148,163,184,.3); }
+    /* native option popups are white — force readable dark text so options aren't invisible */
+    .tbody select option { color:#0f172a; background:#ffffff; }
   </style>
 </head>
 
