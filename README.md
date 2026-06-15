@@ -8,13 +8,25 @@ Secure a job offer of **€5,500+ gross/month** with an IND sponsor (directly or
 
 ## Features
 
-The dashboard is a single `index.html` file with five tabs:
+The dashboard is a single `index.html` file with five tabs, all rendered from one
+`DATA` object in JavaScript (the project's knowledge "database"):
 
-- **Overview** — live countdown to the visa deadline, quick stats, next steps, weekly goals.
-- **Action Plan** — chronological timeline (June: Preparation → July/August: Recruitment → September: Visa / Payroll).
-- **Document Hub** — checklist with statuses for CV, LinkedIn, IDW/Nuffic diploma evaluation, professor references.
-- **Job Tracker** — table / Kanban of applications (company, role, IND-sponsor vs payroll, status, notes).
-- **Knowledge Base** — IND salary thresholds, payroll agency contacts, Dutch job-market notes.
+- **Overview** — live countdown to the visa deadline, quick stats (derived from the data), next steps, weekly goals.
+- **Action Plan** — phased timeline (June: Preparation → July/August: Recruitment → September: Visa/Payroll → October: buffer) with checkable tasks and per-phase progress.
+- **Document Hub** — checklist with click-to-cycle statuses (To do → In progress → Done) for CV, LinkedIn, IDW/Nuffic, references, portfolio, residence docs.
+- **Job Tracker** — table of target companies & applications (company, role, IND-sponsor / payroll / agency, status, notes) with click-to-advance status pills.
+- **Knowledge Base** — IND rules & routes, vetted expat career agencies and IND-certified payroll sponsors (Together Abroad, Blue Lynx, Undutchables, All About Expats, Expat Republic, Noomii), target employers, and agency meeting-prep guidance.
+
+### Data model & persistence
+
+All content lives in a single `DATA` object near the top of the `<script>` in
+`index.html`. To extend the knowledge base, add an entry there and every tab
+updates automatically. Interactive state (checked tasks/goals, document and job
+statuses) is saved to `localStorage` under the key `ritah-cc-v1`, so progress
+survives reloads on the same browser.
+
+> Note: IND salary figures are project targets — verify the current-year
+> thresholds at [ind.nl](https://ind.nl) before filing.
 
 ## Tech stack
 

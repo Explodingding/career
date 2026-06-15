@@ -177,31 +177,31 @@
               <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500"><i class="fa-solid fa-paper-plane"></i></div>
               <span class="text-xs text-slate-400">Total</span>
             </div>
-            <div class="text-3xl font-extrabold mt-3">0</div>
-            <p class="text-sm text-slate-400">Applications sent</p>
+            <div id="stat-apps" class="text-3xl font-extrabold mt-3">0</div>
+            <p class="text-sm text-slate-400">Applications tracked</p>
           </div>
           <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center text-amber-500"><i class="fa-solid fa-comments"></i></div>
               <span class="text-xs text-slate-400">Active</span>
             </div>
-            <div class="text-3xl font-extrabold mt-3">0</div>
+            <div id="stat-active" class="text-3xl font-extrabold mt-3">0</div>
             <p class="text-sm text-slate-400">Replies / interviews</p>
           </div>
           <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center text-brand-500"><i class="fa-solid fa-file-circle-check"></i></div>
-              <span class="text-xs text-slate-400">1 / 4</span>
+              <span id="stat-docs-frac" class="text-xs text-slate-400">0 / 0</span>
             </div>
-            <div class="text-3xl font-extrabold mt-3">25%</div>
+            <div id="stat-docs" class="text-3xl font-extrabold mt-3">0%</div>
             <p class="text-sm text-slate-400">Document readiness</p>
           </div>
           <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 hover:shadow-lg transition">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-500"><i class="fa-solid fa-flag-checkered"></i></div>
-              <span class="text-xs text-slate-400">Phase 1</span>
+              <span id="stat-phase-tag" class="text-xs text-slate-400">Phase 1</span>
             </div>
-            <div class="text-3xl font-extrabold mt-3">Preparation</div>
+            <div id="stat-phase" class="text-3xl font-extrabold mt-3">Preparation</div>
             <p class="text-sm text-slate-400">Current stage</p>
           </div>
         </div>
@@ -214,59 +214,13 @@
               <h3 class="font-bold text-lg"><i class="fa-solid fa-list-check text-brand-500 mr-2"></i>Next Steps</h3>
               <span class="text-xs text-slate-400">June 2026</span>
             </div>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">1</span>
-                <div>
-                  <p class="font-medium">Rebuild CV into an expert (Mid/Senior) version</p>
-                  <p class="text-sm text-slate-400">Combine Uganda career experience with the Dutch academic polish — justify the €5,500 threshold.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">2</span>
-                <div>
-                  <p class="font-medium">Submit diploma evaluation request (IDW / Nuffic)</p>
-                  <p class="text-sm text-slate-400">Confirm the level of the Ugandan master's degree on the NL market — key for positioning.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">3</span>
-                <div>
-                  <p class="font-medium">Optimize LinkedIn profile for Sustainability keywords</p>
-                  <p class="text-sm text-slate-400">Environmental / Natural Resources / ESG — visibility to recruiters at Arcadis, RHDHV, Sweco, Tauw.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">4</span>
-                <div>
-                  <p class="font-medium">Secure references from Dutch professors</p>
-                  <p class="text-sm text-slate-400">Strengthen credibility and the local-market network.</p>
-                </div>
-              </li>
-            </ul>
+            <ul id="next-steps" class="space-y-3"></ul>
           </div>
 
           <!-- This week goals -->
           <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
             <h3 class="font-bold text-lg mb-5"><i class="fa-solid fa-bullseye text-amber-500 mr-2"></i>Goals this week</h3>
-            <div class="space-y-4">
-              <label class="flex items-center gap-3 cursor-pointer group">
-                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
-                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Collect all of Ritah's files (CV, transcripts, projects)</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer group">
-                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
-                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Initial analysis of niche skills</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer group">
-                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
-                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Shortlist 10 target companies + payroll agencies</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer group">
-                <input type="checkbox" class="w-5 h-5 rounded accent-brand-500">
-                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">Check Nuffic/IDW requirements and cost</span>
-              </label>
-            </div>
+            <div id="week-goals" class="space-y-4"></div>
             <div class="mt-6 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/40">
               <p class="text-xs text-amber-700 dark:text-amber-300"><i class="fa-solid fa-lightbulb mr-1"></i> <strong>Strategy:</strong> position Ritah as an experienced international specialist, not a fresh graduate — this justifies the expert salary.</p>
             </div>
@@ -274,25 +228,64 @@
         </div>
       </section>
 
-      <!-- ============ PLACEHOLDER VIEWS ============ -->
+      <!-- ============ VIEW: ACTION PLAN ============ -->
       <section id="view-plan" class="view">
-        <div class="placeholder" data-icon="fa-route" data-title="Action Plan — Timeline"
-          data-desc="Chronological timeline: June (Preparation) → July/August (Intensive recruitment) → September (Visa / Payroll processes)."></div>
+        <div class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+          <div>
+            <h3 class="text-xl font-bold">Action Plan — Road to the HSM visa</h3>
+            <p class="text-sm text-slate-400 mt-1">Phased timeline from preparation to a signed contract. Check off tasks as you complete them — progress is saved in this browser.</p>
+          </div>
+          <div class="text-right">
+            <div id="plan-progress-label" class="text-2xl font-extrabold text-brand-500">0%</div>
+            <p class="text-xs text-slate-400">tasks complete</p>
+          </div>
+        </div>
+        <div id="plan-timeline" class="space-y-6"></div>
       </section>
 
+      <!-- ============ VIEW: DOCUMENT HUB ============ -->
       <section id="view-documents" class="view">
-        <div class="placeholder" data-icon="fa-folder-open" data-title="Document Hub"
-          data-desc="Document checklist with statuses: expert CV, LinkedIn, IDW/Nuffic, professor references."></div>
+        <div class="mb-6">
+          <h3 class="text-xl font-bold">Document Hub</h3>
+          <p class="text-sm text-slate-400 mt-1">Everything Ritah needs ready before approaching agencies and employers. Click a status pill to cycle: To do → In progress → Done.</p>
+        </div>
+        <div id="documents-list" class="grid sm:grid-cols-2 gap-4"></div>
       </section>
 
+      <!-- ============ VIEW: JOB TRACKER ============ -->
       <section id="view-jobs" class="view">
-        <div class="placeholder" data-icon="fa-briefcase" data-title="Job Tracker"
-          data-desc="Table / mini-Kanban: company, role, type (IND sponsor / Payroll), status, notes."></div>
+        <div class="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+          <div>
+            <h3 class="text-xl font-bold">Job Tracker</h3>
+            <p class="text-sm text-slate-400 mt-1">Target companies, agencies and live applications. Click a status pill to advance the stage.</p>
+          </div>
+          <div id="jobs-summary" class="text-xs text-slate-400"></div>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-left">
+                <tr>
+                  <th class="px-4 py-3 font-medium">Company</th>
+                  <th class="px-4 py-3 font-medium">Role</th>
+                  <th class="px-4 py-3 font-medium">Type</th>
+                  <th class="px-4 py-3 font-medium">Status</th>
+                  <th class="px-4 py-3 font-medium hidden md:table-cell">Notes</th>
+                </tr>
+              </thead>
+              <tbody id="jobs-body" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
+            </table>
+          </div>
+        </div>
       </section>
 
+      <!-- ============ VIEW: KNOWLEDGE BASE ============ -->
       <section id="view-knowledge" class="view">
-        <div class="placeholder" data-icon="fa-brain" data-title="Knowledge Base"
-          data-desc="IND thresholds for 30+ (€5,500+), payroll agency contacts, notes on the Dutch job market and cultural differences."></div>
+        <div class="mb-6">
+          <h3 class="text-xl font-bold">Knowledge Base</h3>
+          <p class="text-sm text-slate-400 mt-1">Hard data, professional contacts and market intelligence backing Ritah's plan.</p>
+        </div>
+        <div id="knowledge-body" class="space-y-8"></div>
       </section>
 
     </main>
@@ -304,7 +297,445 @@
 </div>
 
 <script>
-  /* ---------- Tab switching ---------- */
+  /* ===================================================================
+     DATA — single source of truth.
+     Add new sources / contacts / tasks here and every tab updates.
+     =================================================================== */
+  const DATA = {
+    meta: {
+      start: '2026-06-01T00:00:00',
+      deadline: '2026-10-31T23:59:59',
+    },
+
+    /* ---- Overview: weekly goals + next steps ---- */
+    weekGoals: [
+      { id: 'g1', text: "Collect all of Ritah's files (CV, transcripts, projects)" },
+      { id: 'g2', text: 'Initial analysis of niche skills' },
+      { id: 'g3', text: 'Shortlist 10 target companies + payroll agencies' },
+      { id: 'g4', text: 'Check Nuffic/IDW requirements and cost' },
+      { id: 'g5', text: 'Book an orientation call with one expat career agency' },
+    ],
+    nextSteps: [
+      { title: 'Rebuild CV into an expert (Mid/Senior) version',
+        desc: 'Combine 8 years of Uganda career experience (USAID, Caritas projects) with the Dutch academic polish — justify the €5,500 threshold.' },
+      { title: 'Submit diploma evaluation request (IDW / Nuffic)',
+        desc: "Confirm the level of the Ugandan master's degree on the NL market — key for positioning." },
+      { title: 'Optimize LinkedIn profile for Sustainability keywords',
+        desc: 'Environmental / Natural Resources / ESG — visibility to recruiters at Arcadis, RHDHV, Sweco, Tauw.' },
+      { title: 'Engage a professional expat career / payroll agency',
+        desc: 'Book a paid consultation with a specialist (Together Abroad, All About Expats…) to optimise strategy and IND-payroll structuring.' },
+      { title: 'Secure references from Dutch professors',
+        desc: 'Strengthen credibility and the local-market network.' },
+    ],
+
+    /* ---- Action Plan: phased timeline ---- */
+    plan: [
+      {
+        id: 'p1', phase: 'Phase 1', month: 'June 2026', title: 'Preparation & Positioning',
+        icon: 'fa-pen-ruler', accent: 'brand', current: true,
+        tasks: [
+          { id: 'p1t1', text: 'Gather every document (CV, transcripts, project portfolio, references)' },
+          { id: 'p1t2', text: 'Rebuild CV as a Mid/Senior environmental expert' },
+          { id: 'p1t3', text: 'Start IDW / Nuffic diploma evaluation' },
+          { id: 'p1t4', text: 'Rewrite LinkedIn around sustainability / ESG keywords' },
+          { id: 'p1t5', text: 'Shortlist 10 target employers + payroll agencies' },
+          { id: 'p1t6', text: 'Book an orientation call with an expat career agency' },
+        ],
+      },
+      {
+        id: 'p2', phase: 'Phase 2', month: 'July – August 2026', title: 'Intensive Recruitment',
+        icon: 'fa-paper-plane', accent: 'amber',
+        tasks: [
+          { id: 'p2t1', text: 'Engage a paid agency / coach to optimise the strategy' },
+          { id: 'p2t2', text: 'Apply to IND-sponsor employers (Arcadis, RHDHV, Sweco, Tauw…)' },
+          { id: 'p2t3', text: 'Approach payroll / EoR sponsors in parallel' },
+          { id: 'p2t4', text: 'Activate professor & professional references' },
+          { id: 'p2t5', text: 'Network on LinkedIn; attend relevant expat / sector events' },
+          { id: 'p2t6', text: 'Run interview prep with salary-negotiation focus (≥ €5,500)' },
+        ],
+      },
+      {
+        id: 'p3', phase: 'Phase 3', month: 'September 2026', title: 'Offer, Visa & Payroll',
+        icon: 'fa-file-signature', accent: 'blue',
+        tasks: [
+          { id: 'p3t1', text: 'Negotiate the offer to clear the HSM 30+ salary threshold' },
+          { id: 'p3t2', text: 'Confirm sponsor is an IND-recognised company (or use payroll EoR)' },
+          { id: 'p3t3', text: 'Structure the contract with the payroll partner' },
+          { id: 'p3t4', text: 'File the Highly Skilled Migrant application with IND' },
+          { id: 'p3t5', text: 'Plan the transition before the Exchange ends (Oct 31)' },
+        ],
+      },
+      {
+        id: 'p4', phase: 'Buffer', month: 'October 2026', title: 'Decision & Contingency',
+        icon: 'fa-shield-halved', accent: 'purple',
+        tasks: [
+          { id: 'p4t1', text: 'Final follow-ups on open applications' },
+          { id: 'p4t2', text: 'Sign contract & complete IND formalities' },
+          { id: 'p4t3', text: 'Fallback: search-year (zoekjaar) permit if no offer lands in time' },
+        ],
+      },
+    ],
+
+    /* ---- Document Hub ---- */
+    documents: [
+      { id: 'd1', name: 'Expert CV (Mid/Senior)', icon: 'fa-file-lines',
+        desc: 'Reframed around 8 years of experience + Dutch academic exposure.', status: 'progress' },
+      { id: 'd2', name: 'LinkedIn profile', icon: 'fa-linkedin', brand: true,
+        desc: 'Optimised for Environmental / Sustainability / ESG keywords.', status: 'todo' },
+      { id: 'd3', name: 'IDW / Nuffic diploma evaluation', icon: 'fa-graduation-cap',
+        desc: 'Official recognition of the Ugandan degree on the NL market.', status: 'todo' },
+      { id: 'd4', name: 'Professor references', icon: 'fa-user-tie',
+        desc: 'Reference letters / contacts from Radboud supervisors.', status: 'todo' },
+      { id: 'd5', name: 'Project portfolio', icon: 'fa-folder-tree',
+        desc: 'USAID, Caritas and field projects — proof of senior impact.', status: 'progress' },
+      { id: 'd6', name: 'Passport & residence docs', icon: 'fa-passport',
+        desc: 'Current Exchange permit, passport validity, BSN.', status: 'done' },
+    ],
+
+    /* ---- Job Tracker ---- */
+    jobs: [
+      { id: 'j1', company: 'Arcadis', role: 'Environmental Consultant (Mid/Senior)', type: 'IND sponsor', status: 'lead', notes: 'Global engineering firm; recognised IND sponsor.' },
+      { id: 'j2', company: 'Royal HaskoningDHV', role: 'Sustainability / Water Consultant', type: 'IND sponsor', status: 'lead', notes: 'Strong environment & water practice.' },
+      { id: 'j3', company: 'Sweco Nederland', role: 'Environmental Specialist', type: 'IND sponsor', status: 'lead', notes: 'Large NL engineering consultancy.' },
+      { id: 'j4', company: 'Tauw', role: 'Environmental Consultant', type: 'IND sponsor', status: 'lead', notes: 'Niche environment & soil specialist.' },
+      { id: 'j5', company: 'All About Expats', role: 'Payroll / EoR engagement', type: 'Payroll', status: 'lead', notes: 'IND-certified payroll partner — consultation route.' },
+      { id: 'j6', company: 'Together Abroad', role: 'Expat career coaching', type: 'Agency', status: 'lead', notes: 'Book orientation session; CV + strategy review.' },
+    ],
+
+    /* ---- Knowledge Base ---- */
+    knowledge: {
+      indRules: [
+        { label: 'HSM target — 30 and older', value: '€5,500+ /mo', note: 'Project target, gross excl. 8% holiday allowance. Verify the current-year figure at ind.nl before filing.' },
+        { label: 'Why a payroll / EoR route', value: 'Instant IND sponsor', note: 'A payroll agency that is a recognised sponsor can employ Ritah even if the end-client is not on the IND list.' },
+        { label: 'Search-year permit (zoekjaar)', value: 'Fallback option', note: 'Orientation year for graduates of recognised programs — a safety net if no offer lands by Oct 31.' },
+      ],
+      agencyGroups: [
+        {
+          title: 'Expat career-coaching agencies',
+          icon: 'fa-compass',
+          intro: 'Guide a candidate end-to-end: strategy, company lists, salary negotiation tuned to IND requirements.',
+          items: [
+            { name: 'Together Abroad', tag: 'Career coaching',
+              desc: 'One of the most respected expat career-coaching agencies in NL. Paid advisory packages: CV analysis, strategy for age 37 + niche sector, and coaching on how to discuss visa sponsorship. Often offers a free/low-cost orientation session first.',
+              url: 'https://www.togetherabroad.nl/' },
+            { name: 'Blue Lynx', tag: 'Recruitment + advisory',
+              desc: 'Large commercial recruitment & advisory agency for internationals, active for decades. Knows the payroll/EoR mechanism well and which corporations can pay €5,500+ for an environment expert.',
+              url: 'https://www.bluelynx.com/' },
+            { name: 'Undutchables', tag: 'Recruitment + advisory',
+              desc: 'Established multilingual recruitment agency for internationals in NL, with advisory services alongside placement.',
+              url: 'https://www.undutchables.nl/' },
+          ],
+        },
+        {
+          title: 'Payroll / IND-sponsor agencies',
+          icon: 'fa-stamp',
+          intro: 'IND-certified payroll partners. They can employ Ritah directly and give blunt, expert legal-career advice.',
+          items: [
+            { name: 'All About Expats', tag: 'IND-certified payroll',
+              desc: 'Official IND-certified payroll partner. Paid (or free if you use their service) legal-career consultation with polyglot migration-law experts. Will advise how to structure the contract and share lists of engineering firms they work with.',
+              url: 'https://www.allaboutexpats.nl/' },
+            { name: 'Expat Republic', tag: 'IND-certified payroll',
+              desc: 'IND-certified payroll partner offering professional consultation for candidates targeting the Highly Skilled Migrant route.',
+              url: 'https://expatrepublic.com/' },
+          ],
+        },
+        {
+          title: 'Independent / freelance career coaches',
+          icon: 'fa-user-graduate',
+          intro: 'Prefer 1-on-1 with a specific person rather than a big agency.',
+          items: [
+            { name: 'Noomii — Career Coaches in the Netherlands', tag: 'Coach directory',
+              desc: 'International directory of certified coaches. Filter by "Expat Career Transition Netherlands"; many are expat-coaches who walked this path themselves and help non-EU professionals enter the Dutch corporate market.',
+              url: 'https://www.noomii.com/' },
+          ],
+        },
+      ],
+      targetCompanies: [
+        'Arcadis', 'Royal HaskoningDHV', 'Sweco', 'Tauw',
+        'Witteveen+Bos', 'Antea Group', 'Deltares', 'RoyalHaskoning',
+      ],
+      meetingPrep: {
+        intro: 'Before booking (and paying for) a meeting, Ritah should arrive as a partner, not a job-seeker.',
+        haveReady: [
+          'A strong Mid/Senior CV draft — 8 years of experience, USAID & Caritas projects.',
+          'A clear one-line positioning / business question (below).',
+          'Diploma + transcripts and the IDW/Nuffic request in progress.',
+        ],
+        pitch: '“I’m an experienced environmental expert from Africa, finishing an exchange at Radboud, targeting Mid/Senior consulting roles at the Highly Skilled Migrant 30+ salary threshold. I’m looking for your service to optimise my strategy for reaching Dutch corporations and support with the payroll process.”',
+        avoid: 'Do NOT open with “I’m a student looking for any job.” That reframes Ritah as a junior and undercuts the €5,500 positioning.',
+      },
+    },
+  };
+
+  /* ===================================================================
+     STORE — overlays user state (done flags, statuses) on top of DATA,
+     persisted to localStorage so progress survives reloads.
+     =================================================================== */
+  const STORE_KEY = 'ritah-cc-v1';
+  const store = (() => {
+    let s = {};
+    try { s = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { s = {}; }
+    s.done   = s.done   || {};   // task / goal id -> bool
+    s.docs   = s.docs   || {};   // doc id -> status
+    s.jobs   = s.jobs   || {};   // job id -> status
+    const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch (e) {} };
+    return { s, save };
+  })();
+
+  /* ---- status helpers ---- */
+  const DOC_STATES = ['todo', 'progress', 'done'];
+  const DOC_META = {
+    todo:     { label: 'To do',       cls: 'bg-slate-100 dark:bg-slate-800 text-slate-500' },
+    progress: { label: 'In progress', cls: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300' },
+    done:     { label: 'Done',        cls: 'bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300' },
+  };
+  const JOB_STATES = ['lead', 'applied', 'interview', 'offer', 'rejected'];
+  const JOB_META = {
+    lead:      { label: 'Lead',      cls: 'bg-slate-100 dark:bg-slate-800 text-slate-500' },
+    applied:   { label: 'Applied',   cls: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300' },
+    interview: { label: 'Interview', cls: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300' },
+    offer:     { label: 'Offer',     cls: 'bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300' },
+    rejected:  { label: 'Rejected',  cls: 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-300' },
+  };
+  const TYPE_META = {
+    'IND sponsor': 'bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300',
+    'Payroll':     'bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300',
+    'Agency':      'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300',
+  };
+  const esc = (str) => String(str).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+  /* ===================================================================
+     RENDER
+     =================================================================== */
+
+  /* ---- Overview: next steps + week goals + stats ---- */
+  function renderOverview() {
+    document.getElementById('next-steps').innerHTML = DATA.nextSteps.map((s, i) => `
+      <li class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+        <span class="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xs font-bold">${i + 1}</span>
+        <div>
+          <p class="font-medium">${esc(s.title)}</p>
+          <p class="text-sm text-slate-400">${esc(s.desc)}</p>
+        </div>
+      </li>`).join('');
+
+    document.getElementById('week-goals').innerHTML = DATA.weekGoals.map(g => `
+      <label class="flex items-center gap-3 cursor-pointer group">
+        <input type="checkbox" data-goal="${g.id}" class="w-5 h-5 rounded accent-brand-500" ${store.s.done[g.id] ? 'checked' : ''}>
+        <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">${esc(g.text)}</span>
+      </label>`).join('');
+
+    document.querySelectorAll('[data-goal]').forEach(cb => cb.addEventListener('change', () => {
+      store.s.done[cb.dataset.goal] = cb.checked; store.save();
+    }));
+
+    renderStats();
+  }
+
+  function renderStats() {
+    const jobsState = id => store.s.jobs[id] || DATA.jobs.find(j => j.id === id).status;
+    const total = DATA.jobs.length;
+    const active = DATA.jobs.filter(j => ['interview', 'offer'].includes(jobsState(j.id))
+      || ['applied'].includes(jobsState(j.id))).length;
+    document.getElementById('stat-apps').textContent = total;
+    document.getElementById('stat-active').textContent = active;
+
+    const docDone = DATA.documents.filter(d => (store.s.docs[d.id] || d.status) === 'done').length;
+    const pct = Math.round((docDone / DATA.documents.length) * 100);
+    document.getElementById('stat-docs').textContent = pct + '%';
+    document.getElementById('stat-docs-frac').textContent = docDone + ' / ' + DATA.documents.length;
+
+    const current = DATA.plan.find(p => p.current) || DATA.plan[0];
+    document.getElementById('stat-phase').textContent = current.title.split(' ')[0];
+    document.getElementById('stat-phase-tag').textContent = current.phase;
+  }
+
+  /* ---- Action Plan ---- */
+  function renderPlan() {
+    const accentBar = { brand:'bg-brand-500', amber:'bg-amber-500', blue:'bg-blue-500', purple:'bg-purple-500' };
+    const accentIcon = {
+      brand:'bg-brand-50 dark:bg-brand-900/30 text-brand-500',
+      amber:'bg-amber-50 dark:bg-amber-900/30 text-amber-500',
+      blue:'bg-blue-50 dark:bg-blue-900/30 text-blue-500',
+      purple:'bg-purple-50 dark:bg-purple-900/30 text-purple-500',
+    };
+    const el = document.getElementById('plan-timeline');
+    el.innerHTML = DATA.plan.map(p => {
+      const doneCount = p.tasks.filter(t => store.s.done[t.id]).length;
+      const phasePct = Math.round((doneCount / p.tasks.length) * 100);
+      return `
+      <div class="relative bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1 ${accentBar[p.accent]}"></div>
+        <div class="p-5 sm:p-6">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl ${accentIcon[p.accent]} flex items-center justify-center text-lg"><i class="fa-solid ${p.icon}"></i></div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">${esc(p.phase)} · ${esc(p.month)}</span>
+                  ${p.current ? '<span class="text-[10px] px-2 py-0.5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 font-semibold">CURRENT</span>' : ''}
+                </div>
+                <h4 class="font-bold text-base">${esc(p.title)}</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-bold">${phasePct}%</div>
+              <div class="text-[11px] text-slate-400">${doneCount}/${p.tasks.length}</div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            ${p.tasks.map(t => `
+              <label class="flex items-start gap-3 cursor-pointer group p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                <input type="checkbox" data-task="${t.id}" class="mt-0.5 w-4 h-4 rounded accent-brand-500" ${store.s.done[t.id] ? 'checked' : ''}>
+                <span class="text-sm group-has-[:checked]:line-through group-has-[:checked]:text-slate-400">${esc(t.text)}</span>
+              </label>`).join('')}
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    el.querySelectorAll('[data-task]').forEach(cb => cb.addEventListener('change', () => {
+      store.s.done[cb.dataset.task] = cb.checked; store.save();
+      renderPlan(); renderStats();
+    }));
+
+    const allTasks = DATA.plan.flatMap(p => p.tasks);
+    const done = allTasks.filter(t => store.s.done[t.id]).length;
+    document.getElementById('plan-progress-label').textContent =
+      Math.round((done / allTasks.length) * 100) + '%';
+  }
+
+  /* ---- Document Hub ---- */
+  function renderDocuments() {
+    const el = document.getElementById('documents-list');
+    el.innerHTML = DATA.documents.map(d => {
+      const st = store.s.docs[d.id] || d.status;
+      const m = DOC_META[st];
+      const icon = d.brand ? `fa-brands ${d.icon}` : `fa-solid ${d.icon}`;
+      return `
+      <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500"><i class="${icon}"></i></div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-semibold truncate">${esc(d.name)}</h4>
+            <button data-doc="${d.id}" class="text-xs px-2.5 py-1 rounded-full font-medium ${m.cls} hover:opacity-80 transition shrink-0">${m.label}</button>
+          </div>
+          <p class="text-sm text-slate-400 mt-1">${esc(d.desc)}</p>
+        </div>
+      </div>`;
+    }).join('');
+
+    el.querySelectorAll('[data-doc]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.dataset.doc;
+      const cur = store.s.docs[id] || DATA.documents.find(d => d.id === id).status;
+      store.s.docs[id] = DOC_STATES[(DOC_STATES.indexOf(cur) + 1) % DOC_STATES.length];
+      store.save(); renderDocuments(); renderStats();
+    }));
+  }
+
+  /* ---- Job Tracker ---- */
+  function renderJobs() {
+    const body = document.getElementById('jobs-body');
+    body.innerHTML = DATA.jobs.map(j => {
+      const st = store.s.jobs[j.id] || j.status;
+      const m = JOB_META[st];
+      const typeCls = TYPE_META[j.type] || 'bg-slate-100 text-slate-500';
+      return `
+      <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+        <td class="px-4 py-3 font-semibold">${esc(j.company)}</td>
+        <td class="px-4 py-3 text-slate-500 dark:text-slate-300">${esc(j.role)}</td>
+        <td class="px-4 py-3"><span class="text-xs px-2.5 py-1 rounded-full font-medium ${typeCls}">${esc(j.type)}</span></td>
+        <td class="px-4 py-3"><button data-job="${j.id}" class="text-xs px-2.5 py-1 rounded-full font-medium ${m.cls} hover:opacity-80 transition">${m.label}</button></td>
+        <td class="px-4 py-3 text-slate-400 hidden md:table-cell max-w-xs">${esc(j.notes)}</td>
+      </tr>`;
+    }).join('');
+
+    body.querySelectorAll('[data-job]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.dataset.job;
+      const cur = store.s.jobs[id] || DATA.jobs.find(j => j.id === id).status;
+      store.s.jobs[id] = JOB_STATES[(JOB_STATES.indexOf(cur) + 1) % JOB_STATES.length];
+      store.save(); renderJobs(); renderStats();
+    }));
+
+    const counts = JOB_STATES.map(s => ({
+      s, n: DATA.jobs.filter(j => (store.s.jobs[j.id] || j.status) === s).length
+    })).filter(x => x.n);
+    document.getElementById('jobs-summary').innerHTML =
+      counts.map(c => `<span class="mr-3">${JOB_META[c.s].label}: <strong>${c.n}</strong></span>`).join('');
+  }
+
+  /* ---- Knowledge Base ---- */
+  function renderKnowledge() {
+    const k = DATA.knowledge;
+    const rules = `
+      <div>
+        <h4 class="font-bold text-base mb-3"><i class="fa-solid fa-scale-balanced text-brand-500 mr-2"></i>IND rules & routes</h4>
+        <div class="grid sm:grid-cols-3 gap-4">
+          ${k.indRules.map(r => `
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800">
+              <p class="text-xs uppercase tracking-wide text-slate-400">${esc(r.label)}</p>
+              <p class="text-xl font-extrabold text-brand-500 mt-1">${esc(r.value)}</p>
+              <p class="text-xs text-slate-400 mt-2">${esc(r.note)}</p>
+            </div>`).join('')}
+        </div>
+      </div>`;
+
+    const agencies = k.agencyGroups.map(g => `
+      <div>
+        <h4 class="font-bold text-base mb-1"><i class="fa-solid ${g.icon} text-brand-500 mr-2"></i>${esc(g.title)}</h4>
+        <p class="text-sm text-slate-400 mb-3">${esc(g.intro)}</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          ${g.items.map(it => `
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h5 class="font-semibold">${esc(it.name)}</h5>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 shrink-0">${esc(it.tag)}</span>
+              </div>
+              <p class="text-sm text-slate-400">${esc(it.desc)}</p>
+              <a href="${esc(it.url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-500 hover:text-brand-400 mt-3">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit website
+              </a>
+            </div>`).join('')}
+        </div>
+      </div>`).join('');
+
+    const companies = `
+      <div>
+        <h4 class="font-bold text-base mb-3"><i class="fa-solid fa-building text-brand-500 mr-2"></i>Target employers (environment / sustainability consulting)</h4>
+        <div class="flex flex-wrap gap-2">
+          ${[...new Set(k.targetCompanies)].map(c => `
+            <span class="text-sm px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">${esc(c)}</span>`).join('')}
+        </div>
+      </div>`;
+
+    const mp = k.meetingPrep;
+    const prep = `
+      <div>
+        <h4 class="font-bold text-base mb-3"><i class="fa-solid fa-handshake text-brand-500 mr-2"></i>How to prepare Ritah for an agency meeting</h4>
+        <div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 space-y-4">
+          <p class="text-sm text-slate-400">${esc(mp.intro)}</p>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-400 mb-2">Have ready</p>
+            <ul class="space-y-1.5">
+              ${mp.haveReady.map(h => `<li class="flex items-start gap-2 text-sm"><i class="fa-solid fa-check text-brand-500 mt-1 text-xs"></i><span>${esc(h)}</span></li>`).join('')}
+            </ul>
+          </div>
+          <div class="p-4 rounded-lg bg-brand-50 dark:bg-brand-900/20 border border-brand-200 dark:border-brand-800/40">
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-300 mb-1"><i class="fa-solid fa-quote-left mr-1"></i> The opening pitch</p>
+            <p class="text-sm text-brand-800 dark:text-brand-100 italic">${esc(mp.pitch)}</p>
+          </div>
+          <div class="p-4 rounded-lg bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800/40">
+            <p class="text-sm text-rose-700 dark:text-rose-300"><i class="fa-solid fa-triangle-exclamation mr-1"></i> ${esc(mp.avoid)}</p>
+          </div>
+        </div>
+      </div>`;
+
+    document.getElementById('knowledge-body').innerHTML = rules + agencies + companies + prep;
+  }
+
+  /* ===================================================================
+     NAVIGATION & WIDGETS
+     =================================================================== */
   const views = {
     overview:  { title: 'Overview',      sub: 'Main dashboard — relocation project status' },
     plan:      { title: 'Action Plan',   sub: 'Interactive timeline of tasks until October' },
@@ -330,24 +761,9 @@
     switchView(l.dataset.view);
   }));
 
-  /* ---------- Build placeholders ---------- */
-  document.querySelectorAll('.placeholder').forEach(el => {
-    el.innerHTML = `
-      <div class="flex flex-col items-center justify-center text-center py-24 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/40">
-        <div class="w-16 h-16 rounded-2xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center text-brand-500 text-2xl mb-4">
-          <i class="fa-solid ${el.dataset.icon}"></i>
-        </div>
-        <h3 class="text-xl font-bold">${el.dataset.title}</h3>
-        <p class="text-sm text-slate-400 max-w-md mt-2">${el.dataset.desc}</p>
-        <span class="mt-5 inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-300">
-          <i class="fa-solid fa-screwdriver-wrench"></i> Placeholder — Under construction
-        </span>
-      </div>`;
-  });
-
   /* ---------- Countdown to Oct 31, 2026 ---------- */
-  const DEADLINE = new Date('2026-10-31T23:59:59');
-  const START = new Date('2026-06-01T00:00:00');
+  const DEADLINE = new Date(DATA.meta.deadline);
+  const START = new Date(DATA.meta.start);
 
   function updateCountdown() {
     const now = new Date();
@@ -377,6 +793,13 @@
   function closeSidebar() { sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); }
   document.getElementById('menuBtn').addEventListener('click', openSidebar);
   overlay.addEventListener('click', closeSidebar);
+
+  /* ---------- Initial render ---------- */
+  renderOverview();
+  renderPlan();
+  renderDocuments();
+  renderJobs();
+  renderKnowledge();
 </script>
 </body>
 </html>
