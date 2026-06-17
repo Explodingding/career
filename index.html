@@ -98,7 +98,7 @@
         <div><h2 id="pageTitle" class="text-lg font-bold">Overview</h2><p id="pageSub" class="text-xs text-slate-400 hidden sm:block">Main dashboard — relocation project status</p></div>
       </div>
       <div class="flex items-center gap-3">
-        <span class="hidden sm:flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300 font-medium"><span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span> Live · synced</span>
+        <span id="sync-badge" class="hidden sm:flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 font-medium"><span id="sync-dot" class="w-2 h-2 rounded-full bg-slate-400"></span> <span id="sync-text">Offline</span></span>
         <button id="themeBtn" class="w-10 h-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><i class="fa-solid fa-moon dark:hidden"></i><i class="fa-solid fa-sun hidden dark:inline"></i></button>
       </div>
     </header>
@@ -196,6 +196,52 @@
             <li>• <strong>Culture:</strong> direct, punctual communication; networking on LinkedIn matters. Recruiters for internationals e.g. Undutchables.</li>
             <li>• <strong>Pay:</strong> 8% holiday allowance on top of salary; ask employers about the 30% ruling (skilled-migrant tax benefit — terms change, verify current rate).</li>
           </ul>
+        </div>
+
+        <!-- Card: Seasonal / bridge income & job search -->
+        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 mb-5">
+          <h3 class="font-bold text-lg mb-1"><i class="fa-solid fa-magnifying-glass-dollar text-brand-500 mr-2"></i>Working now — bridge income &amp; job search</h3>
+          <p class="text-xs text-slate-400 mb-4">Short-term income to fund the relocation runway in the Nijmegen / Arnhem region. This is a <strong>bridge only</strong> — it does not count toward the Highly Skilled Migrant route, so keep the main effort on the €5,942 sponsor search.</p>
+
+          <!-- Legal callout -->
+          <div class="rounded-lg border border-amber-300/60 dark:border-amber-700/50 bg-amber-50 dark:bg-amber-900/20 p-4 mb-4">
+            <p class="font-semibold text-amber-700 dark:text-amber-300 text-sm mb-2"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Work-permit rules for a non-EU student (read first)</p>
+            <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1.5">
+              <li>• <strong>Hours:</strong> either <strong>max 16 h/week year-round</strong> OR <strong>full-time in June–August only</strong> — never both in the same period.</li>
+              <li>• <strong>Permit (TWV):</strong> the <em>employer</em> applies for a free work permit via UWV. Budget <strong>~5 weeks</strong>, not days — so a June start realistically means working from late July.</li>
+              <li>• <strong>No freelance / ZZP:</strong> Temper, YoungOnes, Uber etc. require self-employment, which non-EU students <strong>may not</strong> do without IND approval. Only a normal employment contract (agency or direct) is safe.</li>
+              <li>• <strong>Why it matters extra:</strong> breaching permit conditions can later <strong>jeopardise the HSM application</strong>. Also keep valid health insurance + BSN.</li>
+              <li>• <strong>Verify first:</strong> exact rights depend on her specific residence permit — confirm on the document / with the exchange coordinator before signing anything.</li>
+            </ul>
+          </div>
+
+          <!-- Channels -->
+          <p class="font-semibold text-slate-700 dark:text-slate-200 text-sm mb-2">Best channels (ranked for a 37-year-old MSc professional)</p>
+          <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1.5 mb-4">
+            <li>• <strong>1 · Radboud University — paid assistant in her field.</strong> A research / student-assistant role in an environmental / sustainability group pays better than horeca, builds <em>Dutch</em> experience, generates the professor references already on the plan, and the university handles TWV routinely. The only "side job" that also advances the HSM goal.</li>
+            <li>• <strong>2 · Multilingual professional agencies.</strong> Undutchables, Adams Multilingual Recruitment, Abroad Experience, Octagon Professionals, Together Abroad — English-first office / project roles, better paid than student gigs.</li>
+            <li>• <strong>3 · Expat job boards.</strong> English-language vacancies across NL; filter for Nijmegen / Arnhem.</li>
+            <li>• <strong>4 · Student agencies (pure bridge / plan B).</strong> ASA Talent and YoungCapital in Nijmegen are fast for summer cash, but treat as a fallback, not a direction.</li>
+          </ul>
+
+          <!-- Tactics -->
+          <p class="font-semibold text-slate-700 dark:text-slate-200 text-sm mb-2">Tactics</p>
+          <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1.5 mb-4">
+            <li>• <strong>Move fast on the permit:</strong> with the ~5-week TWV lead time, target employers who will wait for a steady July–August worker (warehouses, universities) over walk-in shifts.</li>
+            <li>• <strong>One-page bridge CV:</strong> contact details + languages + availability for in-person / walk-in applications, separate from the senior relocation CV.</li>
+            <li>• <strong>In-person beats online here:</strong> a visit to the Radboud careers office or an agency branch can shave weeks off the process.</li>
+            <li>• <strong>Keep it ring-fenced:</strong> bridge work funds the runway; it must not consume the time reserved for the sponsor / HSM search.</li>
+          </ul>
+
+          <!-- Sites -->
+          <p class="font-semibold text-slate-700 dark:text-slate-200 text-sm mb-2">Recommended sites (English-friendly)</p>
+          <ul class="space-y-1 text-sm text-brand-600 dark:text-brand-400">
+            <li>• <a class="hover:underline" href="https://www.ru.nl/en/working-at" target="_blank" rel="noopener">Radboud University — vacancies</a> · <a class="hover:underline" href="https://jobs.iamexpat.nl/" target="_blank" rel="noopener">IamExpat Jobs</a></li>
+            <li>• <a class="hover:underline" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener">LinkedIn Jobs</a> · <a class="hover:underline" href="https://www.indeed.nl/" target="_blank" rel="noopener">Indeed.nl</a> · <a class="hover:underline" href="https://www.nationalevacaturebank.nl/" target="_blank" rel="noopener">Nationale Vacaturebank</a></li>
+            <li>• <a class="hover:underline" href="https://www.undutchables.nl/" target="_blank" rel="noopener">Undutchables</a> · <a class="hover:underline" href="https://www.adamsrecruitment.com/" target="_blank" rel="noopener">Adams Multilingual</a> · <a class="hover:underline" href="https://www.abroad-experience.com/" target="_blank" rel="noopener">Abroad Experience</a></li>
+            <li>• <a class="hover:underline" href="https://www.asa.nl/" target="_blank" rel="noopener">ASA Talent</a> · <a class="hover:underline" href="https://www.youngcapital.nl/" target="_blank" rel="noopener">YoungCapital</a> <span class="text-slate-400">(bridge only)</span></li>
+          </ul>
+          <p class="text-[11px] text-slate-400 mt-4">Hour limits and TWV rules can change — verify current conditions at <a class="hover:underline text-brand-600 dark:text-brand-400" href="https://ind.nl/en" target="_blank" rel="noopener">ind.nl</a> and against her residence permit before accepting work.</p>
         </div>
 
         <!-- Card: Links & glossary -->
@@ -377,6 +423,52 @@ async function refreshOverview(){
   } else { el.innerHTML = '<p class="text-slate-400">No open action items 🎉</p>'; }
 }
 
+// ===== Realtime sync =====
+const TABLES = ['action_items','documents','jobs','kb_notes'];
+let realtimeChannel = null, overviewTimer = null;
+function debouncedOverview(){ clearTimeout(overviewTimer); overviewTimer = setTimeout(refreshOverview, 250); }
+
+function setSyncStatus(state){
+  const badge=document.getElementById('sync-badge'), dot=document.getElementById('sync-dot'), txt=document.getElementById('sync-text');
+  if(!badge) return;
+  const map = {
+    live:       ['Live · synced','bg-brand-500 animate-pulse','bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300'],
+    connecting: ['Connecting…',  'bg-amber-500 animate-pulse','bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300'],
+    offline:    ['Offline',      'bg-slate-400',              'bg-slate-100 dark:bg-slate-800 text-slate-500'],
+  };
+  const [label,dotCls,badgeCls] = map[state] || map.offline;
+  txt.textContent = label;
+  dot.className = 'w-2 h-2 rounded-full '+dotCls;
+  badge.className = 'hidden sm:flex items-center gap-2 text-xs px-3 py-1.5 rounded-full font-medium '+badgeCls;
+}
+
+function subscribeRealtime(){
+  if(realtimeChannel) return;
+  setSyncStatus('connecting');
+  realtimeChannel = db.channel('cc-realtime');
+  TABLES.forEach(table=>{
+    realtimeChannel.on('postgres_changes', { event:'*', schema:'public', table }, ()=>{
+      if(document.querySelector(`.tracker[data-table="${table}"] .tbody`)) loadTable(table);
+      debouncedOverview();
+    });
+  });
+  realtimeChannel.subscribe(status=>{
+    if(status==='SUBSCRIBED') setSyncStatus('live');
+    else if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'||status==='CLOSED') setSyncStatus('offline');
+  });
+}
+function unsubscribeRealtime(){
+  if(realtimeChannel){ db.removeChannel(realtimeChannel); realtimeChannel = null; }
+  setSyncStatus('offline');
+}
+
+// Fallback: re-pull everything when returning to the tab (covers missed events while away/offline).
+document.addEventListener('visibilitychange', ()=>{
+  if(document.visibilityState!=='visible' || appEl.classList.contains('hidden')) return;
+  TABLES.forEach(t=>{ if(document.querySelector(`.tracker[data-table="${t}"] .tbody`)) loadTable(t); });
+  refreshOverview();
+});
+
 // ===== Auth gate =====
 const loginEl = document.getElementById('login'), appEl = document.getElementById('app');
 async function showApp(session){
@@ -385,8 +477,9 @@ async function showApp(session){
   document.querySelectorAll('.tracker').forEach(buildTracker);
   const tables = [...document.querySelectorAll('.tracker')].map(t=>t.dataset.table);
   await Promise.all([...tables.map(loadTable), refreshOverview()]);
+  subscribeRealtime();
 }
-function showLogin(){ appEl.classList.add('hidden'); loginEl.classList.remove('hidden'); }
+function showLogin(){ unsubscribeRealtime(); appEl.classList.add('hidden'); loginEl.classList.remove('hidden'); }
 
 document.getElementById('login-form').addEventListener('submit', async e=>{
   e.preventDefault();

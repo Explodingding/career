@@ -14,5 +14,9 @@ create table if not exists public.kb_notes (
 
 alter table public.kb_notes enable row level security;
 
+drop policy if exists "authenticated full access" on public.kb_notes;
 create policy "authenticated full access" on public.kb_notes
   for all to authenticated using (true) with check (true);
+
+-- Realtime: needed for live cross-device sync of notes. Safe to re-run.
+do $$ begin alter publication supabase_realtime add table public.kb_notes; exception when others then null; end $$;

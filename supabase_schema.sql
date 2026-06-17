@@ -52,27 +52,60 @@ alter table public.action_items enable row level security;
 alter table public.documents    enable row level security;
 alter table public.jobs         enable row level security;
 
+-- drop-then-create so re-running this file never errors with "already exists"
+drop policy if exists "authenticated full access" on public.action_items;
 create policy "authenticated full access" on public.action_items
   for all to authenticated using (true) with check (true);
 
+drop policy if exists "authenticated full access" on public.documents;
 create policy "authenticated full access" on public.documents
   for all to authenticated using (true) with check (true);
 
+drop policy if exists "authenticated full access" on public.jobs;
 create policy "authenticated full access" on public.jobs
   for all to authenticated using (true) with check (true);
 
 -- ============================================================
--- Optional seed data (the items we already drafted).
--- Safe to delete this block if you prefer to start empty.
+-- Realtime: broadcast row changes to subscribed clients so the
+-- dashboard's "Live · synced" badge and cross-device sync work.
+-- Wrapped so re-running this file is safe (no "already member" error).
 -- ============================================================
-insert into public.documents (name, status, owner, notes, sort) values
+do $$ begin alter publication supabase_realtime add table public.action_items; exception when others then null; end $$;
+do $$ begin alter publication supabase_realtime add table public.documents;    exception when others then null; end $$;
+do $$ begin alter publication supabase_realtime add table public.jobs;         exception when others then null; end $$;
+
+-- ============================================================
+-- Optional seed data (the items we already drafted).
+-- Each block only inserts when its table is still empty, so the
+-- whole file is safe to re-run without creating duplicate rows.
+-- Safe to delete any block if you prefer to start empty.
+-- ============================================================
+insert into public.documents (name, status, owner, notes, sort)
+select * from (values
   ('Expert CV (Dutch corporate version)', 'in_progress', 'Łukasz', 'Draft built; pending phone/LinkedIn/MSc details', 1),
   ('LinkedIn profile optimisation',       'todo',        'Ritah',  'Sustainability / ESG keywords', 2),
   ('IDW / Nuffic diploma evaluation',     'todo',        'Ritah',  'Critical for IND; evaluate BA + MSc', 3),
-  ('References from Dutch professors',    'todo',        'Ritah',  'Strengthen local credibility', 4);
+  ('References from Dutch professors',    'todo',        'Ritah',  'Strengthen local credibility', 4)
+) as v(name, status, owner, notes, sort)
+where not exists (select 1 from public.documents);
 
-insert into public.action_items (task, phase, status, notes, sort) values
+insert into public.action_items (task, phase, status, notes, sort)
+select * from (values
   ('Rebuild CV to expert (Mid/Senior) version', 'June – Preparation', 'in_progress', 'Justify €5,500 threshold', 1),
   ('Submit IDW/Nuffic diploma evaluation',      'June – Preparation', 'todo',        'Confirm cost & requirements', 2),
   ('Optimise LinkedIn for Sustainability',      'June – Preparation', 'todo',        'Arcadis, RHDHV, Sweco, Tauw', 3),
-  ('Shortlist 10 target companies + payroll',   'July/Aug – Recruitment', 'todo',     'IND sponsors & EoR agencies', 4);
+  ('Shortlist 10 target companies + payroll',   'July/Aug – Recruitment', 'todo',     'IND sponsors & EoR agencies', 4)
+) as v(task, phase, status, notes, sort)
+where not exists (select 1 from public.action_items);
+
+-- Bridge-income / job-search leads (Nijmegen / Arnhem). Type left blank:
+-- these are short-term income channels, not HSM sponsors.
+insert into public.jobs (company, role, type, status, salary, contact, notes, sort)
+select * from (values
+  ('Radboud University', 'Research / student assistant (environmental)', '', 'researching', '', 'ru.nl/en/working-at', 'Top pick: pays better than horeca, builds Dutch references, uni handles TWV', 10),
+  ('Undutchables',       'Multilingual office / project roles',          '', 'researching', '', 'undutchables.nl',     'English-first professional recruiter', 11),
+  ('Adams Multilingual', 'Multilingual recruitment',                     '', 'researching', '', 'adamsrecruitment.com','Professional, English-speaking roles', 12),
+  ('IamExpat Jobs',      'English-language vacancies (NL)',              '', 'researching', '', 'jobs.iamexpat.nl',    'Filter for Nijmegen / Arnhem', 13),
+  ('ASA Talent',         'Summer temp work (bridge only)',              '', 'researching', '', 'asa.nl',              'Fast summer cash; plan B. Employer must file TWV (~5 weeks)', 14)
+) as v(company, role, type, status, salary, contact, notes, sort)
+where not exists (select 1 from public.jobs);
